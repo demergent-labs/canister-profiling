@@ -8,3 +8,5 @@ build
 _out
 *.wasm
 .mops
+node_modules
+.azle
