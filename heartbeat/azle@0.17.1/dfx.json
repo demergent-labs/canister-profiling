@@ -1,0 +1,20 @@
+{
+  "canisters": {
+    "heartbeat": {
+      "type": "custom",
+      "build": "npx azle heartbeat",
+      "root": "src/",
+      "ts": "src/heartbeat.ts",
+      "candid": "src/heartbeat.did",
+      "wasm": ".azle/heartbeat/heartbeat.wasm"
+    },
+    "timer": {
+      "type": "custom",
+      "build": "npx azle timer",
+      "root": "src/",
+      "ts": "src/timer.ts",
+      "candid": "src/timer.did",
+      "wasm": ".azle/timer/timer.wasm"
+    }
+  }
+}
