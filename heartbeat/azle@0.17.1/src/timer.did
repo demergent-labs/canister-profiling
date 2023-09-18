@@ -1,0 +1,5 @@
+service : () -> {
+  cancelTimer : (nat) -> ();
+  no_op : () -> ();
+  setTimer : (nat) -> (nat);
+}
