@@ -44,3 +44,11 @@ define perf_two
 	ic-repl ../../$(1)/$(2); \
 	ic-repl ../../$(1)/$(3)
 endef
+
+define perf_three
+	set -e; \
+	$(call prepare_perf,$(1)); \
+	ic-repl ../../$(1)/$(2); \
+	ic-repl ../../$(1)/$(3); \
+	ic-repl ../../$(1)/$(4)
+endef
