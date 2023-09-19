@@ -1,0 +1,20 @@
+{
+  "canisters": {
+    "pub": {
+      "type": "custom",
+      "build": "npx azle pub",
+      "root": "src/",
+      "ts": "src/pub.ts",
+      "candid": "src/pub.did",
+      "wasm": ".azle/pub/pub.wasm"
+    },
+    "sub": {
+      "type": "custom",
+      "build": "npx azle sub",
+      "root": "src/",
+      "ts": "src/sub.ts",
+      "candid": "src/sub.did",
+      "wasm": ".azle/sub/sub.wasm"
+    }
+  }
+}

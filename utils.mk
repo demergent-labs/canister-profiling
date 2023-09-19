@@ -42,5 +42,6 @@ define perf_two
 	set -e; \
 	$(call prepare_perf,$(1)); \
 	ic-repl ../../$(1)/$(2); \
-	ic-repl ../../$(1)/$(3)
+	ic-repl ../../$(1)/$(3); \
+	ic-repl ../../$(1)/$(4)
 endef

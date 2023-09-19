@@ -1,0 +1,6 @@
+type Counter = record { topic : text; value : nat64 };
+service : () -> {
+  getCount : () -> (nat64) query;
+  setupSubscribe : (principal, text) -> (null);
+  updateCount : (Counter) -> ();
+}
