@@ -15,7 +15,8 @@ members = [
     "pub-sub/rust/subscriber",
 ]
 exclude = [
-    "heartbeat/kybra/.kybra/heartbeat"
+    "heartbeat/kybra/.kybra/heartbeat",
+    "heartbeat/kybra/.kybra/timer"
 ]
 
 [profile.release]
