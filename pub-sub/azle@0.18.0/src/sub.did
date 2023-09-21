@@ -1,0 +1,6 @@
+type rec_0 = record {topic:text; value:nat64};
+service: () -> {
+    setupSubscribe: (principal, text) -> ();
+    updateCount: (rec_0) -> ();
+    getCount: () -> (nat64) query;
+}

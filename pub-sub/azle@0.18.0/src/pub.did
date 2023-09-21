@@ -1,0 +1,6 @@
+type rec_0 = record {topic:text};
+type rec_1 = record {topic:text; value:nat64};
+service: () -> {
+    subscribe: (rec_0) -> ();
+    publish: (rec_1) -> ();
+}
