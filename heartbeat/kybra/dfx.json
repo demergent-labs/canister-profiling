@@ -2,11 +2,19 @@
   "canisters": {
     "heartbeat": {
       "type": "custom",
-      "build": "python -m kybra heartbeat src/main.py src/main.did",
+      "build": "python -m kybra heartbeat src/heartbeat.py src/heartbeat.did",
       "post_install": ".kybra/heartbeat/post_install.sh",
-      "candid": "src/main.did",
+      "candid": "src/heartbeat.did",
       "wasm": ".kybra/heartbeat/heartbeat.wasm",
-      "gzip": true
+      "gzip": false
+    },
+    "timer": {
+      "type": "custom",
+      "build": "python -m kybra timer src/timer.py src/timer.did",
+      "post_install": ".kybra/timer/post_install.sh",
+      "candid": "src/timer.did",
+      "wasm": ".kybra/timer/timer.wasm",
+      "gzip": false
     }
   }
 }
