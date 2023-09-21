@@ -1,0 +1,12 @@
+{
+  "canisters": {
+    "heartbeat": {
+      "type": "custom",
+      "build": "python -m kybra heartbeat src/main.py src/main.did",
+      "post_install": ".kybra/heartbeat/post_install.sh",
+      "candid": "src/main.did",
+      "wasm": ".kybra/heartbeat/heartbeat.wasm",
+      "gzip": true
+    }
+  }
+}
