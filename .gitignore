@@ -10,3 +10,5 @@ _out
 .mops
 node_modules
 .azle
+.kybra
+venv

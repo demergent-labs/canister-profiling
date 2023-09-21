@@ -9,6 +9,7 @@ let heartbeat_ts_v0_17_1 = wasm_profiling("azle@0.17.1/.dfx/local/canisters/hear
 let timer_ts_v0_17_1 = wasm_profiling("azle@0.17.1/.dfx/local/canisters/timer/timer.wasm");
 let heartbeat_ts_v0_18_0 = wasm_profiling("azle@0.18.0/.dfx/local/canisters/heartbeat/heartbeat.wasm");
 let timer_ts_v0_18_0 = wasm_profiling("azle@0.18.0/.dfx/local/canisters/timer/timer.wasm");
+let heartbeat_py = wasm_profiling("kybra/.dfx/local/canisters/heartbeat/heartbeat.wasm");
 
 let file = "README.md";
 
@@ -45,6 +46,7 @@ heartbeat_perf(heartbeat_mo, "Motoko");
 heartbeat_perf(heartbeat_rs, "Rust");
 heartbeat_perf(heartbeat_ts_v0_17_1, "Azle@0.17.1");
 heartbeat_perf(heartbeat_ts_v0_18_0, "Azle@0.18.0");
+heartbeat_perf(heartbeat_py, "kybra");
 
 output(file, "\n## Timer\n\n| |binary_size|setTimer|cancelTimer|\n|--:|--:|--:|--:|\n");
 timer_perf(timer_mo, "Motoko");
