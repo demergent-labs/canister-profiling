@@ -1,0 +1,12 @@
+{
+  "canisters": {
+    "hashmap": {
+      "type": "custom",
+      "main": "src/hashmap.ts",
+      "candid": "src/hashmap.did",
+      "build": "npx azle hashmap",
+      "wasm": ".azle/hashmap/hashmap.wasm",
+      "gzip": false
+    }
+  }
+}
