@@ -18,6 +18,7 @@ let imrc_hashmap_rs = wasm_profiling("rust/.dfx/local/canisters/imrc_hashmap/imr
 let vector_rs = wasm_profiling("rust/.dfx/local/canisters/vector/vector.wasm");
 
 let hashmap_ts_v0_17_1 = wasm_profiling("azle@0.17.1/.dfx/local/canisters/hashmap/hashmap.wasm");
+let hashmap_ts_v0_18_0 = wasm_profiling("azle@0.18.0/.dfx/local/canisters/hashmap/hashmap.wasm");
 
 //let movm_rs = wasm_profiling("rust/.dfx/local/canisters/movm/movm.wasm");
 //let movm_dynamic_rs = wasm_profiling("rust/.dfx/local/canisters/movm_dynamic/movm_dynamic.wasm");
@@ -68,6 +69,7 @@ perf(btreemap_rs, "btreemap_rs", init_size, batch_size);
 perf(imrc_hashmap_rs, "imrc_hashmap_rs", init_size, batch_size);
 perf(hashmap_rs, "hashmap_rs", init_size, batch_size);
 perf(hashmap_ts_v0_17_1, "hashmap_ts_v0_17_1", init_size, batch_size);
+perf(hashmap_ts_v0_18_0, "hashmap_ts_v0_18_0", init_size, batch_size);
 
 output(file, "\n## Priority queue\n\n| |binary_size|heapify 1m|max mem|pop_min 50|put 50|\n|--:|--:|--:|--:|--:|--:|\n");
 perf(heap, "heap", init_size, batch_size);

@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@dfinity/principal": "^0.19.2",
+    "azle": "^0.18.0"
+  }
+}
