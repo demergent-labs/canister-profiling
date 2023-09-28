@@ -1,0 +1,36 @@
+{
+  "canisters": {
+    "hashmap": {
+      "type": "custom",
+      "main": "src/hashmap.ts",
+      "candid": "collection.did",
+      "build": "npx azle hashmap",
+      "wasm": ".azle/hashmap/hashmap.wasm",
+      "gzip": false
+    },
+    "btreemap": {
+      "type": "custom",
+      "main": "src/btreemap.ts",
+      "candid": "collection.did",
+      "build": "npx azle btreemap",
+      "wasm": ".azle/btreemap/btreemap.wasm",
+      "gzip": false
+    },
+    "heap": {
+      "type": "custom",
+      "main": "src/heap.ts",
+      "candid": "collection.did",
+      "build": "npx azle heap",
+      "wasm": ".azle/heap/heap.wasm",
+      "gzip": false
+    },
+    "vector": {
+      "type": "custom",
+      "main": "src/vector.ts",
+      "candid": "collection.did",
+      "build": "npx azle vector",
+      "wasm": ".azle/vector/vector.wasm",
+      "gzip": false
+    }
+  }
+}
