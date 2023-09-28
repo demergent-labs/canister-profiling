@@ -1,6 +1,6 @@
 include ../*.mk
 
-.PHONY: all motoko rust build perf
+.PHONY: all motoko rust azle@0.17.1 build perf
 all: build perf
 
 motoko:
@@ -9,7 +9,10 @@ motoko:
 rust:
 	$(call build,rust)
 
-build: motoko rust
+azle@0.17.1:
+	$(call build,azle@0.17.1)
+
+build: motoko rust azle@0.17.1
 
 perf:
 	$(call perf,collections,perf.sh)
