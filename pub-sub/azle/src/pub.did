@@ -1,0 +1,4 @@
+service: () -> {
+    publish: (record {topic:text; value:nat64}) -> ();
+    subscribe: (record {topic:text}) -> ();
+}
