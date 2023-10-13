@@ -1,0 +1,7 @@
+service: () -> {
+    batch_get: (nat32) -> ();
+    batch_put: (nat32) -> ();
+    batch_remove: (nat32) -> ();
+    generate: (nat32) -> ();
+    get_mem: () -> (record {nat; nat; nat}) query;
+}

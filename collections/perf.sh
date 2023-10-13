@@ -18,6 +18,8 @@ let imrc_hashmap_rs = wasm_profiling("rust/.dfx/local/canisters/imrc_hashmap/imr
 let vector_rs = wasm_profiling("rust/.dfx/local/canisters/vector/vector.wasm");
 
 let hashmap_ts = wasm_profiling("azle/.dfx/local/canisters/hashmap/hashmap.wasm");
+let heap_ts = wasm_profiling("azle/.dfx/local/canisters/heap/heap.wasm");
+let vector_ts = wasm_profiling("azle/.dfx/local/canisters/vector/vector.wasm");
 
 //let movm_rs = wasm_profiling("rust/.dfx/local/canisters/movm/movm.wasm");
 //let movm_dynamic_rs = wasm_profiling("rust/.dfx/local/canisters/movm_dynamic/movm_dynamic.wasm");
@@ -72,6 +74,7 @@ perf(hashmap_ts, "hashmap_ts", init_size, batch_size);
 output(file, "\n## Priority queue\n\n| |binary_size|heapify 1m|max mem|pop_min 50|put 50|\n|--:|--:|--:|--:|--:|--:|\n");
 perf(heap, "heap", init_size, batch_size);
 perf(heap_rs, "heap_rs", init_size, batch_size);
+perf(heap_ts, "heap_ts", init_size, batch_size);
 
 let init_size = 5_000;
 let batch_size = 500;
@@ -79,6 +82,7 @@ output(file, "\n## Growable array\n\n| |binary_size|generate 5k|max mem|batch_ge
 perf(buffer, "buffer", init_size, batch_size);
 perf(vector, "vector", init_size, batch_size);
 perf(vector_rs, "vec_rs", init_size, batch_size);
+perf(vector_ts, "vec_ts", init_size, batch_size);
 
 
 /*

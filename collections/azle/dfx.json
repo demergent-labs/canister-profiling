@@ -15,6 +15,14 @@
       "build": "npx azle heap",
       "wasm": ".azle/heap/heap.wasm",
       "gzip": false
+    },
+    "vector": {
+      "type": "custom",
+      "main": "src/vector.ts",
+      "candid": "src/vector.did",
+      "build": "npx azle vector",
+      "wasm": ".azle/vector/vector.wasm",
+      "gzip": false
     }
   }
 }
