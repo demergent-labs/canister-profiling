@@ -14,7 +14,7 @@ import Heap from "heap";
 import { Random } from "./random";
 
 // Heap is a min-heap by default
-let map = new Heap<bigint>();
+let map = new Heap<nat64>();
 const rand = new Random(None, 42n);
 
 export default Canister({
