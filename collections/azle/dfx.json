@@ -7,6 +7,14 @@
       "build": "npx azle hashmap",
       "wasm": ".azle/hashmap/hashmap.wasm",
       "gzip": false
+    },
+    "heap": {
+      "type": "custom",
+      "main": "src/heap.ts",
+      "candid": "src/heap.did",
+      "build": "npx azle heap",
+      "wasm": ".azle/heap/heap.wasm",
+      "gzip": false
     }
   }
 }
