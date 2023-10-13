@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "azle": "^0.18.2",
-    "heap": "^0.2.7"
+    "heap": "^0.2.7",
+    "sorted-btree": "^1.8.1"
   },
   "devDependencies": {
     "@types/heap": "^0.2.32"
