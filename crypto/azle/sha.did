@@ -1,0 +1,6 @@
+service: () -> {
+    principalToAccount: (principal) -> (vec nat8);
+    principalToNeuron: (principal, nat64) -> (vec nat8);
+    sha256: (vec nat8) -> (vec nat8);
+    sha512: (vec nat8) -> (vec nat8);
+}

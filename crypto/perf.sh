@@ -3,6 +3,7 @@ load "../prelude.sh";
 
 let sha_mo = wasm_profiling("motoko/.dfx/local/canisters/sha/sha.wasm");
 let sha_rs = wasm_profiling("rust/.dfx/local/canisters/sha/sha.wasm");
+let sha_ts = wasm_profiling("azle/.dfx/local/canisters/sha/sha.wasm");
 let map_mo = wasm_profiling("motoko/.dfx/local/canisters/certified_map/certified_map.wasm", mo_config);
 let map_rs = wasm_profiling("rust/.dfx/local/canisters/certified_map/certified_map.wasm", rs_config);
 let sample = file("sample_wasm.bin");
@@ -18,7 +19,7 @@ function perf_sha(wasm, title) {
   let svg = stringify(title, "_sha256.svg");
   output(file, stringify("[", __cost_sha256, "](", svg, ")|"));
   flamegraph(cid, stringify(title, ".sha256"), svg);
-  
+
   let sha512 = call cid.sha512(sample);
   let svg = stringify(title, "_sha512.svg");
   output(file, stringify("[", __cost_sha512, "](", svg, ")|"));
@@ -34,7 +35,7 @@ function perf_sha(wasm, title) {
   let svg = stringify(title, "_to_neuron.svg");
   output(file, stringify("[", __cost_neuron, "](", svg, ")|"));
   flamegraph(cid, stringify(title, ".principalToNeuron"), svg);
-  
+
   output(file, "\n");
   uninstall(cid);
   vec {sha256; sha512; account; neuron};
@@ -63,7 +64,7 @@ function perf_map(wasm, title, init_size) {
   let svg = stringify(title, "_upgrade.svg");
   flamegraph(cid, stringify(title, ".upgrade"), svg);
   output(file, stringify("[", _, "](", svg, ")|"));
-  
+
   output(file, "\n");
   uninstall(cid);
   witness;
@@ -71,7 +72,9 @@ function perf_map(wasm, title, init_size) {
 
 let res1 = perf_sha(sha_mo, "Motoko");
 let res2 = perf_sha(sha_rs, "Rust");
+let res3 = perf_sha(sha_ts, "Azle");
 assert res1 == res2;
+assert res2 == res3;
 
 output(file, "\n## Certified map\n\n| |binary_size|generate 10k|max mem|inc|witness|upgrade|\n|--:|--:|--:|--:|--:|--:|--:|\n");
 let init_size = 10_000;

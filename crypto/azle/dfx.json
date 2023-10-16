@@ -1,0 +1,12 @@
+{
+  "canisters": {
+    "sha": {
+      "type": "custom",
+      "main": "src/sha.ts",
+      "candid": "sha.did",
+      "build": "npx azle sha",
+      "wasm": ".azle/sha/sha.wasm",
+      "gzip": false
+    }
+  }
+}
