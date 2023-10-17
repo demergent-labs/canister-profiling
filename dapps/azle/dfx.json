@@ -1,0 +1,12 @@
+{
+  "canisters": {
+    "basic_dao": {
+      "type": "custom",
+      "main": "basic_dao/index.ts",
+      "candid": "basic_dao/index.did",
+      "build": "npx azle basic_dao",
+      "wasm": ".azle/basic_dao/basic_dao.wasm",
+      "gzip": false
+    }
+  }
+}

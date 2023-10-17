@@ -10,6 +10,7 @@ identity genesis;
 
 let motoko = wasm_profiling("motoko/.dfx/local/canisters/basic_dao/basic_dao.wasm", mo_config);
 let rust = wasm_profiling("rust/.dfx/local/canisters/basic_dao/basic_dao.wasm", rs_config);
+let azle = wasm_profiling("azle/.dfx/local/canisters/basic_dao/basic_dao.wasm", ts_config);
 
 let file = "README.md";
 output(file, "\n## Basic DAO\n\n| |binary_size|init|transfer_token|submit_proposal|vote_proposal|upgrade|\n|--|--:|--:|--:|--:|--:|--:|\n");
@@ -18,16 +19,16 @@ function perf(wasm, title) {
 let init = encode wasm.__init_args(
   record {
     accounts = vec {
-      record { owner = genesis; tokens = record { amount_e8s = 1_000_000_000_000 } };
-      record { owner = alice; tokens = record { amount_e8s = 100 } };
-      record { owner = bob; tokens = record { amount_e8s = 200 } };
-      record { owner = cathy; tokens = record { amount_e8s = 300 } };
+      record { owner = genesis; tokens = record { amount_e8s = (1_000_000_000_000: nat64) } };
+      record { owner = alice; tokens = record { amount_e8s = (100: nat64) } };
+      record { owner = bob; tokens = record { amount_e8s = (200: nat64) } };
+      record { owner = cathy; tokens = record { amount_e8s = (300: nat64) } };
     };
     proposals = vec {};
     system_params = record {
-      transfer_fee = record { amount_e8s = 100 };
-      proposal_vote_threshold = record { amount_e8s = 100 };
-      proposal_submission_deposit = record { amount_e8s = 100 };
+      transfer_fee = record { amount_e8s = (100: nat64) };
+      proposal_vote_threshold = record { amount_e8s = (100: nat64) };
+      proposal_submission_deposit = record { amount_e8s = (100: nat64) };
     };
   }
 );
@@ -37,14 +38,14 @@ call DAO.__get_cycles();
 output(file, stringify("|", title, "|", wasm.size(), "|", _, "|"));
 
 // transfer tokens
-let _ = call DAO.transfer(record { to = dory; amount = record { amount_e8s = 400 } });
+let _ = call DAO.transfer(record { to = dory; amount = record { amount_e8s = (400: nat64) } });
 let svg = stringify(title, "_dao_transfer.svg");
 output(file, stringify("[", __cost__, "](", svg, ")|"));
 flamegraph(DAO, "DAO.transfer", svg);
 
 // alice makes a proposal
 identity alice;
-let update_transfer_fee = record { transfer_fee = opt record { amount_e8s = 10_000 } };
+let update_transfer_fee = record { transfer_fee = opt record { amount_e8s = (10_000: nat64) } };
 call DAO.submit_proposal(
   record {
     canister_id = DAO;
@@ -76,3 +77,4 @@ assert _?.proposer == alice;
 
 perf(motoko, "Motoko");
 perf(rust, "Rust");
+perf(azle, "Azle");

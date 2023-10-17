@@ -1,0 +1,11 @@
+service: (record {system_params:record {transfer_fee:record {amount_e8s:nat64}; proposal_vote_threshold:record {amount_e8s:nat64}; proposal_submission_deposit:record {amount_e8s:nat64}}; accounts:vec record {owner:principal; tokens:record {amount_e8s:nat64}}; proposals:vec record {id:nat64; votes_no:record {amount_e8s:nat64}; voters:vec principal; state:variant {Failed:text; Open; Executing; Rejected; Succeeded; Accepted}; timestamp:nat64; proposer:principal; votes_yes:record {amount_e8s:nat64}; payload:record {method:text; canister_id:principal; message:vec nat8}}}) -> {
+    account_balance: () -> (record {amount_e8s:nat64}) query;
+    get_proposal: (nat64) -> (opt record {id:nat64; votes_no:record {amount_e8s:nat64}; voters:vec principal; state:variant {Failed:text; Open; Executing; Rejected; Succeeded; Accepted}; timestamp:nat64; proposer:principal; votes_yes:record {amount_e8s:nat64}; payload:record {method:text; canister_id:principal; message:vec nat8}}) query;
+    get_system_params: () -> (record {transfer_fee:record {amount_e8s:nat64}; proposal_vote_threshold:record {amount_e8s:nat64}; proposal_submission_deposit:record {amount_e8s:nat64}}) query;
+    list_accounts: () -> (vec record {owner:principal; tokens:record {amount_e8s:nat64}}) query;
+    list_proposals: () -> (vec record {id:nat64; votes_no:record {amount_e8s:nat64}; voters:vec principal; state:variant {Failed:text; Open; Executing; Rejected; Succeeded; Accepted}; timestamp:nat64; proposer:principal; votes_yes:record {amount_e8s:nat64}; payload:record {method:text; canister_id:principal; message:vec nat8}}) query;
+    submit_proposal: (record {method:text; canister_id:principal; message:vec nat8}) -> (variant {Ok:nat64; Err:text});
+    transfer: (record {to:principal; amount:record {amount_e8s:nat64}}) -> (variant {Ok; Err:text});
+    update_system_params: (record {transfer_fee:opt record {amount_e8s:nat64}; proposal_vote_threshold:opt record {amount_e8s:nat64}; proposal_submission_deposit:opt record {amount_e8s:nat64}}) -> ();
+    vote: (record {vote:variant {No; Yes}; proposal_id:nat64}) -> (variant {Ok:variant {Failed:text; Open; Executing; Rejected; Succeeded; Accepted}; Err:text});
+}

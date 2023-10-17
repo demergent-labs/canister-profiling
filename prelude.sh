@@ -35,3 +35,4 @@ function get_memory(cid) {
 
 let mo_config = record { start_page = 16; page_limit = 4096 };
 let rs_config = record { start_page = 1; page_limit = 4096 };
+let ts_config = record { start_page = 1; page_limit = 4096 };
