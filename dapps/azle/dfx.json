@@ -7,6 +7,14 @@
       "build": "npx azle basic_dao",
       "wasm": ".azle/basic_dao/basic_dao.wasm",
       "gzip": false
+    },
+    "dip721_nft": {
+      "type": "custom",
+      "main": "dip721-nft/index.ts",
+      "candid": "dip721-nft/index.did",
+      "build": "npx azle dip721_nft",
+      "wasm": ".azle/dip721_nft/dip721_nft.wasm",
+      "gzip": false
     }
   }
 }
