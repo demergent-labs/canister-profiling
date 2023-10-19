@@ -1,0 +1,24 @@
+service: (record {logo:record {data:text; logo_type:text}; name:text; custodians:opt vec principal; symbol:text}) -> {
+    approveDip721: (principal, nat64) -> (variant {Ok:nat; Err:variant {ZeroAddress; InvalidTokenId; Unauthorized; Other}});
+    balanceOfDip721: (principal) -> (nat64) query;
+    burnDip721: (nat64) -> (variant {Ok:nat; Err:variant {ZeroAddress; InvalidTokenId; Unauthorized; Other}});
+    getMetadataDip721: (nat64) -> (variant {Ok:vec record {data:vec nat8; key_val_data:vec record {text; variant {Nat64Content:nat64; Nat32Content:nat32; Nat8Content:nat8; NatContent:nat; Nat16Content:nat16; BlobContent:vec nat8; TextContent:text}}; purpose:variant {Preview; Rendered}}; Err:variant {ZeroAddress; InvalidTokenId; Unauthorized; Other}}) query;
+    getMetadataForUserDip721: (principal) -> (vec record {token_id:nat64; metadata_desc:vec record {data:vec nat8; key_val_data:vec record {text; variant {Nat64Content:nat64; Nat32Content:nat32; Nat8Content:nat8; NatContent:nat; Nat16Content:nat16; BlobContent:vec nat8; TextContent:text}}; purpose:variant {Preview; Rendered}}}) query;
+    isApprovedForAllDip721: (principal) -> (bool) query;
+    is_custodian: (principal) -> (bool) query;
+    mintDip721: (principal, vec record {data:vec nat8; key_val_data:vec record {text; variant {Nat64Content:nat64; Nat32Content:nat32; Nat8Content:nat8; NatContent:nat; Nat16Content:nat16; BlobContent:vec nat8; TextContent:text}}; purpose:variant {Preview; Rendered}}) -> (variant {Ok:record {id:nat; token_id:nat64}; Err:variant {Unauthorized}});
+    nameDip721: () -> (text) query;
+    ownerOfDip721: (nat64) -> (variant {Ok:principal; Err:variant {ZeroAddress; InvalidTokenId; Unauthorized; Other}}) query;
+    safeTransferFromDip721: (principal, principal, nat64) -> (variant {Ok:nat; Err:variant {ZeroAddress; InvalidTokenId; Unauthorized; Other}});
+    safeTransferFromNotifyDip721: (principal, principal, nat64, vec nat8) -> (variant {Ok:nat; Err:variant {ZeroAddress; InvalidTokenId; Unauthorized; Other}});
+    setApprovalForAllDip721: (principal, bool) -> (variant {Ok:nat; Err:variant {ZeroAddress; InvalidTokenId; Unauthorized; Other}});
+    set_custodian: (principal, bool) -> (variant {Ok; Err:variant {ZeroAddress; InvalidTokenId; Unauthorized; Other}});
+    set_logo: (record {data:text; logo_type:text}) -> (variant {Ok; Err:variant {ZeroAddress; InvalidTokenId; Unauthorized; Other}});
+    set_name: (text) -> (variant {Ok; Err:variant {ZeroAddress; InvalidTokenId; Unauthorized; Other}});
+    set_symbol: (text) -> (variant {Ok; Err:variant {ZeroAddress; InvalidTokenId; Unauthorized; Other}});
+    supportedInterfacesDip721: () -> (vec variant {Burn; Mint; Approval; TransactionHistory; TransferNotification}) query;
+    symbolDip721: () -> (text) query;
+    totalSupplyDip721: () -> (nat64) query;
+    transferFromDip721: (principal, principal, nat64) -> (variant {Ok:nat; Err:variant {ZeroAddress; InvalidTokenId; Unauthorized; Other}});
+    transferFromNotifyDip721: (principal, principal, nat64, vec nat8) -> (variant {Ok:nat; Err:variant {ZeroAddress; InvalidTokenId; Unauthorized; Other}});
+}
