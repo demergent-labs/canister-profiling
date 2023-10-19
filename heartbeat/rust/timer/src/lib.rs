@@ -10,8 +10,8 @@ thread_local! {
 }
 
 #[update]
-fn setTimer(sec: u64) {
-    let tid = set_timer(Duration::from_secs(sec), || {});
+fn setTimer(sec: u128) {
+    let tid = set_timer(Duration::from_secs(sec as u64), || {});
     ID.with(|id| {
         *id.borrow_mut() = tid;
     });
